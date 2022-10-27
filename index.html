@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeJs Timeline animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <img src="img/stars.png" id="stars" alt="stars">
+    <img src="img/moon.png" id="lua" alt="lua">
+    <img src="img/mountains_behind.png" id="montanhas_01" alt="montanhas">
+    <h2 id="text"> Domingos <span>Jr.</span></h2>
+    <a href="#" id="btn">Play</a>
+    <img src="img/mountains_front.png" id="montanhas_02" alt="montanhas">
+  </section>
+  <script src="anime.min.js"></script>
+  <script>
+    let animmation = anime.timeline({
+      autoplay: false
+    });
+
+    animmation
+    .add({
+      targets: '#btn',
+      top: '1500px',
+      duration: 500,
+      easing: 'easeInOutSine'
+    })
+
+   
+    .add({
+      targets: '#stars',
+      top: '0px',
+      duration: 1000,
+      easing: 'easeInOutSine'
+    })
+
+   
+    .add({
+      targets: '#montanhas_01',
+      bottom: '0px',
+      duration: 1000,
+      easing: 'easeInOutSine'
+    })
+
+    animmation
+    .add({
+      targets: '#lua',
+      top: '0px',
+      duration: 1000,
+      easing: 'easeInOutBack'
+    })
+
+   
+    .add({
+      targets: '#montanhas_02',
+      bottom: '0px',
+      duration: 1000,
+      easing: 'easeInOutSine'
+    })
+
+    .add({
+      targets: '#text',
+      duration: 1000,
+      marginRight: -140,
+      easing: 'easeInOutBack'
+    })
+
+  
+    .add({
+      targets: '#btn',
+      top: '50%',
+      duration: 1000,
+      easing: 'easeInOutBack'
+    })
+
+    document.querySelector('#btn').onclick = animmation.play;
+  </script>
+</body>
+</html>
